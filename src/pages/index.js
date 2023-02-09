@@ -8,7 +8,7 @@ const IndexPage = () => {
             <p>Home page for my awesome portfolio site (in progress)</p>
             <StaticImage
                 alt="Seattle, Washington"
-                src="../images/seattle.jpg"
+                src="../images/Seattle.jpg"
             />
         </Layout>
     )
