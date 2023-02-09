@@ -1,0 +1,30 @@
+/* CSS HEX
+--cambridge-blue: #7bae7fff;
+--celadon: #95d7aeff;
+--lavender-blush: #fceff9ff;
+--silver-lake-blue: #7392b7ff;
+--hunter-green: #3a5743ff; */
+
+.container {
+    margin: auto;
+    max-width: 500px;
+    font-family:  sans-serif;
+}
+
+.heading {
+    color: #7bae7fff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-link-item {
+    padding-right: 2rem;
+}
+
+.nav-link-text {
+    color: black;
+}
