@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Layout from '../../components/Layout'
+import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 
-const BlogPost = ( {data, children} ) => {
+const ProjectPost = ( {data, children} ) => {
     const image = getImage(data.mdx.frontmatter.hero_image)
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
@@ -45,4 +45,4 @@ query ($id: String) {
 
 export const Head = ({ data} ) => <Seo title={data.mdx.frontmatter.title}/>
 
-export default BlogPost
+export default ProjectPost

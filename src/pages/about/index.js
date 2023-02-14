@@ -11,7 +11,7 @@ const AboutPage = ( {data} ) => {
           <About/>
           <StaticImage
               alt="A Husky from the University of Washington, just like me!"
-              src="../images/dubs.jpg"
+              src="../../images/dubs.jpg"
           />
         </Layout>
     )
