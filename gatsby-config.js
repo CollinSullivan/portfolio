@@ -1,6 +1,10 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Collin Sullivan's Portfolio`,
@@ -18,5 +22,6 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       }
     },
+    
   ],
 };

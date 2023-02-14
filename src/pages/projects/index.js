@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
+import RepositoryList from '../../components/RepositoryList'
 
 const ProjectPage = ( { data }) => {
     return (
@@ -18,6 +19,7 @@ const ProjectPage = ( { data }) => {
                     </article>
                 ))
             }
+            <RepositoryList/>
         </Layout>
     )
 }
