@@ -1,12 +1,14 @@
 import * as React from 'react'
-import Layout from '../components/layout'
+import { graphql } from 'gatsby'
+import Layout from '../../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
-import Seo from '../components/seo'
+import Seo from '../../components/seo'
+import HeadPageTemplate from '../../components/HeadPageTemplate'
 
-const AboutPage = () => {
+const AboutPage = ( {data} ) => {
     return (
         <Layout pageTitle="About Me">
-            <p>This is a page about me!</p>
+          <HeadPageTemplate data={data} />
             <StaticImage
                 alt="A Husky from the University of Washington, just like me!"
                 src="../images/dubs.jpg"
@@ -14,6 +16,14 @@ const AboutPage = () => {
         </Layout>
     )
 }
+
+export const query = graphql`
+  query AboutPage($id: String) {
+    mdx(id: { eq: $id }) {
+      body
+    }
+  }
+`
 
 export const Head = () => <Seo title="About"/>
 
