@@ -3,23 +3,26 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../../components/seo'
-import HeadPageTemplate from '../../components/HeadPageTemplate'
+import About from '../about/about.mdx'
 
 const AboutPage = ( {data} ) => {
     return (
-        <Layout pageTitle="About Me">
-          <HeadPageTemplate data={data} />
-            <StaticImage
-                alt="A Husky from the University of Washington, just like me!"
-                src="../images/dubs.jpg"
-            />
+        <Layout pageTitle={data.mdx.frontmatter.title}>
+          <About/>
+          <StaticImage
+              alt="A Husky from the University of Washington, just like me!"
+              src="../images/dubs.jpg"
+          />
         </Layout>
     )
 }
 
 export const query = graphql`
-  query AboutPage($id: String) {
-    mdx(id: { eq: $id }) {
+  query MyQuery {
+    mdx(frontmatter: {slug: {eq: "about"}}) {
+      frontmatter {
+        title
+      }
       body
     }
   }

@@ -24,7 +24,8 @@ const BlogPage = ( { data }) => {
 
 export const query = graphql`
     query {
-        allMdx(sort: {frontmatter: {date: DESC}}) {
+        allMdx(sort: {frontmatter: {date: DESC}}
+                filter: {frontmatter: {slug: { ne: "about"}}}) {
             nodes {
                 frontmatter {
                 date(formatString: "MMMM D, YYYY")
