@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
+import Carousel from '../../components/Carousel'
 
 const ProjectPage = ( { data }) => {
     return (
         <Layout pageTitle="My Projects">
-            {
+            {/* {
                 data.allMdx.nodes.map((node) => (
                     <article key={node.id}>
                         <h2>
@@ -17,8 +18,8 @@ const ProjectPage = ( { data }) => {
                         <p>Posted: {node.frontmatter.date}</p>
                     </article>
                 ))    
-            }
-            
+            } */}
+            <Carousel/>
         </Layout>
     )
 }
