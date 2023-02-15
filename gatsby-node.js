@@ -5,7 +5,7 @@ const axios = require('axios')
 exports.onPostBuild = async () => {
     try {
         // Make the API call to get the repositories
-        const response = await axios.get(process.env.GATSBY_API_URL + 'projects?membership=true', {
+        const response = await axios.get(process.env.GATSBY_API_URL + 'projects?membership=true&min_access_level=30', {
             headers: {
                 'PRIVATE-TOKEN': process.env.GATSBY_GITLAB_ACCESS_TOKEN
             }
@@ -17,6 +17,27 @@ exports.onPostBuild = async () => {
             const repoDirPath = path.resolve(`./src/pages/projects/${repoName}`)
             const repoFullPath = path.resolve(`./src/pages/projects/${repoName}/index.mdx`)
             const repoSlug = repoName.replace(/\s+/g, '-').toLowerCase()
+            let repoAccessLevel
+            switch (repo.access_level) {
+                case 10:
+                  repoAccessLevel = 'Guest access';
+                  break;
+                case 20:
+                  repoAccessLevel = 'Reporter access';
+                  break;
+                case 30:
+                  repoAccessLevel = 'Developer access';
+                  break;
+                case 40:
+                  repoAccessLevel = 'Maintainer access';
+                  break;
+                case 50:
+                  repoAccessLevel = 'Owner access';
+                  break;
+                default:
+                  repoAccessLevel = 'Unknown access level';
+                  break;
+              }
             // Create the file and write the content
             // Uncomment the check below if you don't want overwrites every time you build the site
             // if (fs.existsSync(repoPath)) {
@@ -28,6 +49,8 @@ exports.onPostBuild = async () => {
 title: "${repoName}"
 date: "${repo.last_activity_at}"
 slug: "${repoSlug}"
+access: "${repoAccessLevel}"
+created: "${repo.created_at}"
 ---
 ${repo.description}
 `
