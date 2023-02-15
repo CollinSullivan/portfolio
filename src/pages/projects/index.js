@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
-import RepositoryList from '../../components/gatsby-RepositoryList'
 
 const ProjectPage = ( { data }) => {
     return (
@@ -17,9 +16,9 @@ const ProjectPage = ( { data }) => {
                         </h2>
                         <p>Posted: {node.frontmatter.date}</p>
                     </article>
-                ))
+                ))    
             }
-            <RepositoryList/>
+            
         </Layout>
     )
 }
