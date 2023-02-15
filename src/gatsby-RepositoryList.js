@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 const API_URL =  `${process.env.GATSBY_API_URL}`
-const accessToken = `${process.env.GITLAB_ACCESS_TOKEN}`
+const accessToken = `${process.env.GATSBY_GITLAB_ACCESS_TOKEN}`
 
 class RepositoryList extends React.Component {
   state = {
