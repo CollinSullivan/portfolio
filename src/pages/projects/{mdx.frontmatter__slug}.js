@@ -43,6 +43,8 @@ query ($id: String) {
   }
 `
 
+
+
 export const Head = ({ data} ) => <Seo title={data.mdx.frontmatter.title}/>
 
 export default ProjectPost

@@ -19,26 +19,37 @@ const ProjectPage = ( { data }) => {
                     </article>
                 ))    
             } */}
-            <Carousel/>
+            <Carousel 
+                data={data}
+                technology='python'/>
+            <Carousel
+                data={data}
+                technology='java'/>
+            <Carousel
+                data={data}
+                technology='tableau'/>
+            <Carousel
+                data={data}
+                technology='C'/>
+            
         </Layout>
     )
 }
 
 export const query = graphql`
-    query {
-        allMdx(sort: {frontmatter: {date: DESC}}
-                filter: {frontmatter: {slug: { ne: "about"}}}) {
-            nodes {
-                frontmatter {
-                date(formatString: "MMMM D, YYYY")
-                title
-                slug
-                }
-                id
-            }
-        }
+query {
+  allMdx {
+    nodes {
+      id
+      frontmatter {
+        slug
+        title
+        date(formatString: "MMMM D, YYYY")
+        technology
+      }
     }
-`
+  }
+}`
 
 export const Head = () => <Seo title="My Projects" />
 
