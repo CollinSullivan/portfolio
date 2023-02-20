@@ -6,7 +6,9 @@ import {
     navLinks,
     navLinkItem,
     navLinkText,
-    siteTitle
+    siteTitle,
+    footer,
+    main
  } from './layout.module.css'
 
 const Layout = ({ pageTitle, children}) => {
@@ -38,10 +40,16 @@ const Layout = ({ pageTitle, children}) => {
                     </li>
                 </ul>
             </nav>
-            <main>
+            <main className={main}>
                 <h1 className={heading}>{pageTitle}</h1>
                 {children}
             </main>
+            <footer className={footer}>
+                <p>Copyright © {new Date().getFullYear()}
+                {` `}
+                <Link to="/" className={navLinkText}>My Portfolio Site</Link>
+                </p>
+            </footer>
         </div>
     )
 }
