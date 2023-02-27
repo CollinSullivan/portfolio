@@ -7,24 +7,29 @@ import "slick-carousel/slick/slick-theme.css"
 
 const Carousel = ( { data, technology }) => {
     const settings = {
-        dots: false,
+        className: "center",
+        centerMode: true,
+        centerPadding: "3rem",
+        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1,
-
+        
     };
-    const test = Object.values(data.allMdx.nodes).filter(function (entry) {
+
+    let filtered = Object.values(data.allMdx.nodes).filter(function (entry) {
         if(entry.frontmatter.technology == null ){
             return false
         }
         return entry.frontmatter.technology.includes(technology)
     })
 
-
+    if (technology === undefined) {
+        filtered = data.allMdx.nodes
+    }
 
     const slides = 
-        test.map((node) => (
+        filtered.map((node) => (
             <div key={node.id}>
                 <article >
                     <h2>
@@ -38,11 +43,9 @@ const Carousel = ( { data, technology }) => {
             </div>
         ))   
     return (
-        <div>
-            <Slider {...settings}>
-                {slides}
-            </Slider>
-        </div>
+        <Slider {...settings}>
+            {slides}
+        </Slider>
     )
 
 }
