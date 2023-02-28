@@ -33,15 +33,16 @@ const ProjectPage = ( { data }) => {
 
     return (
         <div>
-            <div style={{float: 'right', paddingTop: '2rem'}}>
-                <MultiSelectDropdown options={technologies} selected={selected} toggleOption={toggleOption} />
-            </div>
+            
             <Layout 
                 pageTitle="My Projects">
-                <div style={{paddingTop: '5rem'}}>
+                <div style={{paddingTop: '5rem', paddingLeft: '4rem', paddingRight:'4rem'}}>
                     <Carousel
                         data={data}
                         technology={selected.map( id => technologies[id])}/>
+                </div>
+                <div style={{ paddingTop: '4rem'}}>
+                    <MultiSelectDropdown options={technologies} selected={selected} toggleOption={toggleOption} />
                 </div>
             </Layout>
         </div>

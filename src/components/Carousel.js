@@ -6,15 +6,12 @@ import "slick-carousel/slick/slick-theme.css"
 
 const Carousel = ( { data, technology }) => {
 
-    const settings = {
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "0px",
-        slidesToShow: 1,
+      const settings = {
         dots: true,
+        infinite: true,
         speed: 500,
-        arrows: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
     };
 
     
