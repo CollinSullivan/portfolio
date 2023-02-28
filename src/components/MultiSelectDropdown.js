@@ -40,7 +40,7 @@ const MultiSelectDropdown = ({ options, selected, toggleOption }) => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
-                <div>{selected.length} Selected</div>
+                <div>Filter Technology</div>
                 <img src={Dropdown} alt="dropdown icon"/>
             </div>
             {isOpen && (
@@ -49,19 +49,23 @@ const MultiSelectDropdown = ({ options, selected, toggleOption }) => {
                         const isSelected = selected.includes(option.id)
 
                         return(
-                            <li className={cMultiSelectDropdown__option}>
+                            <li key={option.id}
+                                 className={cMultiSelectDropdown__option}>
                                 <button className={cMultiSelectDropdown__optionButton}
                                     type="button" 
-                                    onClick={() => toggleOption({ id: option.id})} 
-                                    onKeyDown={(e) => {
-                                        if (e.key === "Enter") {
-                                            toggleOption({ id: option.id })
-                                        }
-                                    }} 
+                                    
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave} 
                                     >
                                         <input 
                                             type="checkbox"
-                                            checked={isSelected}
+                                            defaultChecked={isSelected}
+                                            onClick={() => toggleOption({ id: option.id})} 
+                                            onKeyDown={(e) => {
+                                                if (e.key === "Enter") {
+                                                    toggleOption({ id: option.id })
+                                                }
+                                            }}
                                             className={cMultiSelectDropdown__optionCheckbox}
                                         />
                                 </button>

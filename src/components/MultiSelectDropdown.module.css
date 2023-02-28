@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .c-multi-select-dropdown {
-  margin: 100px auto;
+  margin:  auto;
   font-family: 'Roboto', sans-serif;
   position: relative;
   width: 300px;
+  z-index: 0;
 }
 
 .c-multi-select-dropdown:hover .c-multi-select-dropdown__options {
@@ -28,13 +29,13 @@
 
 .c-multi-select-dropdown__options {
   display: none;
-  position: relative;
+  position: absolute;
   box-sizing: border-box;
   left: 0;
   width: 100%;
   list-style: none;
-  padding: 0; /* added */
-  margin: 0; /* added */
+  padding: 0;
+  margin: 0; 
   border: solid 1px #eee;
 }
 
@@ -60,9 +61,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 8px 12px;
-    font-size: 16px;
-    line-height: 24px;
+
     color: #333;
     outline: none;
   }

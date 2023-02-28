@@ -4,27 +4,46 @@ import { Link } from 'gatsby'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-
 const Carousel = ( { data, technology }) => {
+
     const settings = {
         className: "center",
         centerMode: true,
-        centerPadding: "3rem",
-        dots: true,
         infinite: true,
-        speed: 500,
+        centerPadding: "0px",
         slidesToShow: 1,
-        
+        dots: true,
+        speed: 500,
+        arrows: true,
     };
+
+    
+
+    let lowerCaseTechnology = []
+    if (technology === undefined){
+        lowerCaseTechnology = []
+    } else {
+        lowerCaseTechnology = technology.map(str => str.title.toLowerCase());
+    }
+
 
     let filtered = Object.values(data.allMdx.nodes).filter(function (entry) {
         if(entry.frontmatter.technology == null ){
             return false
         }
-        return entry.frontmatter.technology.includes(technology)
+        let currentTechnology = entry.frontmatter.technology.split(",")
+
+        for(let i = 0; i < currentTechnology.length; i++) {
+            for(let j = 0; j < lowerCaseTechnology.length; j++){
+                if (currentTechnology[i].toLowerCase() === lowerCaseTechnology[j]){
+                    return true
+                }
+            }
+        }
+        return false
     })
 
-    if (technology === undefined) {
+    if (lowerCaseTechnology.length === 0){
         filtered = data.allMdx.nodes
     }
 
@@ -43,9 +62,11 @@ const Carousel = ( { data, technology }) => {
             </div>
         ))   
     return (
-        <Slider {...settings}>
-            {slides}
-        </Slider>
+        <div style={{textAlign:'center'}}>
+            <Slider {...settings}>
+                {slides}
+            </Slider>
+        </div>
     )
 
 }

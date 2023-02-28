@@ -9,11 +9,11 @@ const ProjectPage = ( { data }) => {
 
     // I want to have this stored in a file/ preferably have this as a graphQL query. But until then this will suffice.
     const technologies = [
-        { id: 1, title: 'Java' },
-        { id: 2, title: 'JavaScript' },
-        { id: 3, title: 'Python' },
-        { id: 4, title: 'Tableau' },
-        { id: 5, title: 'C' }
+        { id: 0, title: 'Java' },
+        { id: 1, title: 'JavaScript' },
+        { id: 2, title: 'Python' },
+        { id: 3, title: 'Tableau' },
+        { id: 4, title: 'C' }
     ]
 
     const [selected, setSelected] = useState([])
@@ -30,30 +30,27 @@ const ProjectPage = ( { data }) => {
         })
     }
 
+
     return (
-        <Layout pageTitle="My Projects">
-            <MultiSelectDropdown options={technologies} selected={selected} toggleOption={toggleOption} />
-            <Carousel
-                data={data}/>
-            {/* <Carousel 
-                data={data}
-                technology='python'/>
-            <Carousel
-                data={data}
-                technology='java'/>
-            <Carousel
-                data={data}
-                technology='tableau'/>
-            <Carousel
-                data={data}
-                technology='C'/> */}
-        </Layout>
+        <div>
+            <div style={{float: 'right', paddingTop: '2rem'}}>
+                <MultiSelectDropdown options={technologies} selected={selected} toggleOption={toggleOption} />
+            </div>
+            <Layout 
+                pageTitle="My Projects">
+                <div style={{paddingTop: '5rem'}}>
+                    <Carousel
+                        data={data}
+                        technology={selected.map( id => technologies[id])}/>
+                </div>
+            </Layout>
+        </div>
     )
 }
 
 export const query = graphql`
 query {
-  allMdx {
+  allMdx(filter: {frontmatter: {technology: {ne:null}}}) {
     nodes {
       id
       frontmatter {
