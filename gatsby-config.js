@@ -23,6 +23,11 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       }
     },
-    
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/collincodes-logo/svg/logo-no-background.svg',
+      },
+    }
   ],
 };

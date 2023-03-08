@@ -3,6 +3,8 @@ import Slider from 'react-slick'
 import { Link } from 'gatsby'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { carouselItem,
+        carouselItemHeading } from './Carousel.module.css'
 
 const Carousel = ( { data, technology }) => {
 
@@ -46,13 +48,11 @@ const Carousel = ( { data, technology }) => {
 
     const slides = 
         filtered.map((node) => (
-            <div key={node.id}>
+            <div key={node.id} className={carouselItem}>
                 <article >
-                    <h2>
-                        <Link to={`/projects/${node.frontmatter.slug}`}>
-                            {node.frontmatter.title}   
-                        </Link>
-                    </h2>
+                    <Link to={`/projects/${node.frontmatter.slug}`} className={carouselItemHeading}>
+                        {node.frontmatter.title}   
+                    </Link>
                     <p>Posted: {node.frontmatter.date}</p>
                     <p>Tech: {node.frontmatter.technology}</p>
                 </article>

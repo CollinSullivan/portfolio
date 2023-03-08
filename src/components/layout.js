@@ -8,7 +8,8 @@ import {
     navLinkText,
     siteTitle,
     footer,
-    main
+    main,
+    childContent
  } from './layout.module.css'
 
 const Layout = ({ pageTitle, children}) => {
@@ -45,12 +46,12 @@ const Layout = ({ pageTitle, children}) => {
             </nav>
             <main className={main}>
                 <h1 className={heading}>{pageTitle}</h1>
-                {children}
+                <div className={childContent}>{children}</div>
             </main>
             <footer className={footer}>
-                <p>Copyright © {new Date().getFullYear()}
+                <p>Collin Sullivan | {new Date().getFullYear()} |
                 {` `}
-                <Link to="/" className={navLinkText}>My Portfolio Site</Link>
+                <Link to="/">Home</Link>
                 </p>
             </footer>
         </div>

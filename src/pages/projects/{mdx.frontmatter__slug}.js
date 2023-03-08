@@ -26,21 +26,21 @@ const ProjectPost = ( {data, children} ) => {
 
 export const query = graphql`
 query ($id: String) {
-    mdx(id: {eq: $id}) {
-      frontmatter {
-        title
-        date(formatString: "MMMM D, YYYY")
-        hero_image_alt
-        hero_image_credit_link
-        hero_image_credit_text
-        hero_image {
-          childImageSharp {
-            gatsbyImageData
-          }
+  mdx(id: {eq: $id}, frontmatter: {exclude: {eq: "false"}}) {
+    frontmatter {
+      title
+      date(formatString: "MMMM D, YYYY")
+      hero_image_alt
+      hero_image_credit_link
+      hero_image_credit_text
+      hero_image {
+        childImageSharp {
+          gatsbyImageData
         }
       }
     }
   }
+}
 `
 
 

@@ -2,6 +2,29 @@ const fs = require('fs')
 const path = require('path')
 const axios = require('axios')
 
+exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
+    const config = getConfig();
+  
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /\.(pdf)$/i,
+            use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[name].[ext]',
+                  outputPath: 'assets/pdf/',
+                },
+              },
+            ],
+          },
+        ],
+      },
+    });
+  };
+  
 // exports.onPreBootstrap = async () => {
 //     let currentAccessLevel = 30
 //     while(currentAccessLevel < 60) {

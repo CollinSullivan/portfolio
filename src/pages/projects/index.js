@@ -36,12 +36,12 @@ const ProjectPage = ( { data }) => {
             
             <Layout 
                 pageTitle="My Projects">
-                <div style={{paddingTop: '5rem', paddingLeft: '4rem', paddingRight:'4rem'}}>
+                <div style={{ paddingLeft: '4rem', paddingRight:'4rem'}}>
                     <Carousel
                         data={data}
                         technology={selected.map( id => technologies[id])}/>
                 </div>
-                <div style={{ paddingTop: '4rem'}}>
+                <div style={{ paddingTop: '2rem', paddingBottom: '12rem'}}>
                     <MultiSelectDropdown options={technologies} selected={selected} toggleOption={toggleOption} />
                 </div>
             </Layout>
@@ -51,17 +51,17 @@ const ProjectPage = ( { data }) => {
 
 export const query = graphql`
 query {
-  allMdx(filter: {frontmatter: {technology: {ne:null}}}) {
-    nodes {
-      id
-      frontmatter {
-        slug
-        title
-        date(formatString: "MMMM D, YYYY")
-        technology
+    allMdx(filter: {frontmatter: {technology: {ne: null}, exclude: {eq: "false"}}}) {
+      nodes {
+        id
+        frontmatter {
+          slug
+          title
+          date(formatString: "MMMM D, YYYY")
+          technology
+        }
       }
     }
-  }
 }`
 
 export const Head = () => <Seo title="My Projects" />

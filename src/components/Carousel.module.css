@@ -1,11 +1,24 @@
-.slider-arrow {
-    color: blue;
-    font-size: 2em;
-    opacity: 0.5;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-  
-  .slider-arrow:hover {
-    opacity: 1;
-  }
+@import url('theme.css');
+
+.carousel-item {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+
+}
+
+.carousel-item-heading {
+  color: var(--secondary-color);
+  font: var(--heading-font);
+  font-size: 2rem;
+}
+
+/* .carousel-item-heading:link { text-decoration: none; } */
+
+
+.carousel-item-heading:visited { text-decoration: none; }
+
+
+/* .carousel-item-heading:hover { text-decoration: none; } */
+
+
+/* .carousel-item-heading:active { text-decoration: none; } */
