@@ -14,7 +14,7 @@ const ProjectPost = ( {data, children} ) => {
 
 export const query = graphql`
 query ($id: String) {
-  mdx(id: {eq: $id}, frontmatter: {exclude: {eq: "false"}}) {
+  mdx(id: {eq: $id}) {
     frontmatter {
       title
       date(formatString: "MMMM D, YYYY")
