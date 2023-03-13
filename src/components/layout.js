@@ -1,50 +1,47 @@
-import * as React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
 import { 
     container,
     heading,
     navLinks,
     navLinkItem,
     navLinkText,
-    siteTitle,
+    siteHeader,
     footer,
     main,
-    childContent
+    childContent,
+    logo
  } from './layout.module.css'
 
 const Layout = ({ pageTitle, children}) => {
-    const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
 
 
     return (
         <div className={container}>
-
-            <header className={siteTitle}>{data.site.siteMetadata.title}</header>
-            <nav>
+            <header className={siteHeader}>
+                <StaticImage
+                    alt="collincodes logo"
+                    src="../images/logos/png/logo-no-background.png"
+                    className={logo}
+                />
                 <ul className={navLinks}>
-                    <li className={navLinkItem}>
-                        <Link to="/" className={navLinkText}>Home</Link>
+                    <li className={navLinkItem} key="home">
+                        <Link to="/" className={navLinkText}>HOME</Link>
                     </li>
-                    <li className={navLinkItem}>
-                        <Link to="/about" className={navLinkText}>About</Link>
+                    <li className={navLinkItem} key="about">
+                        <Link to="/about" className={navLinkText}>ABOUT</Link>
                     </li>
-                    <li className={navLinkItem}>
-                        <Link to="/experience" className={navLinkText}>Work Experience</Link>
+                    <li className={navLinkItem} key="experience">
+                        <Link to="/experience" className={navLinkText}>EXPERIENCE</Link>
                     </li>
-                    <li className={navLinkItem}>
-                        <Link to="/projects" className={navLinkText}>Projects</Link>
+                    <li className={navLinkItem} key="projects">
+                        <Link to="/projects" className={navLinkText}>PROJECTS</Link>
                     </li>
                 </ul>
-            </nav>
+
+            </header>
             <main className={main}>
                 <h1 className={heading}>{pageTitle}</h1>
                 <div className={childContent}>{children}</div>

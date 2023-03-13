@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Slider from 'react-slick'
-import { Link } from 'gatsby'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { carouselItem,
@@ -51,7 +50,7 @@ const Carousel = ( { data, technology }) => {
         filtered.map((node) => (
             <div key={node.id} className={carouselItem}>
                 <article >
-                    <a href={`/projects/${node.frontmatter.slug}`} className={carouselItemHeading} target="_blank">
+                    <a href={`/projects/${node.frontmatter.slug}`} className={carouselItemHeading} target="_blank" rel="noreferrer">
                         {node.frontmatter.title}   
                     </a>
                     <p>Posted: {node.frontmatter.date}</p>
