@@ -27,6 +27,7 @@ const Layout = ({ pageTitle, children}) => {
 
     return (
         <div className={container}>
+
             <header className={siteTitle}>{data.site.siteMetadata.title}</header>
             <nav>
                 <ul className={navLinks}>
@@ -52,6 +53,12 @@ const Layout = ({ pageTitle, children}) => {
                 <p>Collin Sullivan | {new Date().getFullYear()} |
                 {` `}
                 <Link to="/">Home</Link>
+                {` | `}
+                <Link to="/about">About</Link>
+                {` | `}
+                <Link to="/experience">Experience</Link>
+                {` | `}
+                <Link to="/projects">Projects</Link>
                 </p>
             </footer>
         </div>

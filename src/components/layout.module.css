@@ -77,8 +77,7 @@
 .child-content {
     margin-left: 1rem;
     margin-right: 1rem;
-    padding-bottom: 100%;
-    margin: 4rem;
+    padding-bottom: 1rem;
     margin-bottom:auto;
     background-color: var(--background-color);
 }

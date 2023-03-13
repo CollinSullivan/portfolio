@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import Dropdown from '../images/Dropdown.png'
 import {
     cMultiSelectDropdown,
@@ -11,9 +11,10 @@ import {
 
 } from "./MultiSelectDropdown.module.css"
 
-const MultiSelectDropdown = ({ options, selected, toggleOption }) => {
+const MultiSelectDropdown = ({ options, selected, toggleOption  }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [timeoutId, setTimeoutId] = useState(null)
+
 
     const handleMouseEnter = () => {
         setIsOpen(true)
@@ -23,7 +24,6 @@ const MultiSelectDropdown = ({ options, selected, toggleOption }) => {
     const handleMouseLeave = () => {
         setTimeoutId(setTimeout(() => setIsOpen(false), 5000))
     }
-
 
 
     return (

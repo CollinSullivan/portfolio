@@ -4,7 +4,8 @@ import { Link } from 'gatsby'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { carouselItem,
-        carouselItemHeading } from './Carousel.module.css'
+        carouselItemHeading,
+        sliderDiv } from './Carousel.module.css'
 
 const Carousel = ( { data, technology }) => {
 
@@ -50,16 +51,16 @@ const Carousel = ( { data, technology }) => {
         filtered.map((node) => (
             <div key={node.id} className={carouselItem}>
                 <article >
-                    <Link to={`/projects/${node.frontmatter.slug}`} className={carouselItemHeading}>
+                    <a href={`/projects/${node.frontmatter.slug}`} className={carouselItemHeading} target="_blank">
                         {node.frontmatter.title}   
-                    </Link>
+                    </a>
                     <p>Posted: {node.frontmatter.date}</p>
                     <p>Tech: {node.frontmatter.technology}</p>
                 </article>
             </div>
         ))   
     return (
-        <div style={{textAlign:'center'}}>
+        <div className={sliderDiv}>
             <Slider {...settings}>
                 {slides}
             </Slider>
