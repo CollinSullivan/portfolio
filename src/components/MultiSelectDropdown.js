@@ -9,7 +9,7 @@ import {
     cMultiSelectDropdown__optionCheckbox
 
 
-} from "./MultiSelectDropdown.module.css"
+} from "../styles/MultiSelectDropdown.module.css"
 
 const MultiSelectDropdown = ({ options, selected, toggleOption  }) => {
     const [isOpen, setIsOpen] = useState(false)

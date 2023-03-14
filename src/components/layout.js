@@ -12,7 +12,7 @@ import {
     main,
     childContent,
     logo
- } from './layout.module.css'
+ } from '../styles/layout.module.css'
 
 const Layout = ({ pageTitle, children}) => {
 
@@ -23,7 +23,7 @@ const Layout = ({ pageTitle, children}) => {
             <header className={siteHeader}>
                 <StaticImage
                     alt="collincodes logo"
-                    src="../images/logos/png/logo-no-background.png"
+                    src="../images/logos/svg/logo-no-background.svg"
                     className={logo}
                 />
                 <ul className={navLinks}>
@@ -43,7 +43,6 @@ const Layout = ({ pageTitle, children}) => {
 
             </header>
             <main className={main}>
-                <h1 className={heading}>{pageTitle}</h1>
                 <div className={childContent}>{children}</div>
             </main>
             <footer className={footer}>

@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { carouselItem,
         carouselItemHeading,
-        sliderDiv } from './Carousel.module.css'
+        sliderDiv } from '../styles/Carousel.module.css'
 
 const Carousel = ( { data, technology }) => {
 

@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/collincodes-logo/svg/logo-no-background.svg',
+        icon: './src/images/logos/svg/logo-no-background.svg',
       },
     }
   ],
