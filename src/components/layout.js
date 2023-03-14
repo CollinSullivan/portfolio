@@ -3,7 +3,6 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { 
     container,
-    heading,
     navLinks,
     navLinkItem,
     navLinkText,

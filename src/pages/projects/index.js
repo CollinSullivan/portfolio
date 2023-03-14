@@ -7,17 +7,6 @@ import MultiSelectDropdown from '../../components/MultiSelectDropdown'
 
 const ProjectPage = ( { data }) => {
 
-    function getParameter() {
-        var url = window.location.href;
-        var v= 'selected'
-        v = v.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + v + '(=([^&#]*)|&|#|$)'),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return parseInt(decodeURIComponent(results[2].replace(/\+/g, ' ')));
-    }
-
     // I want to have this stored in a file/ preferably have this as a graphQL query. But until then this will suffice.
     const technologies = [
         { id: 0, title: 'Java' },
@@ -31,16 +20,6 @@ const ProjectPage = ( { data }) => {
 
     const [selected, setSelected] = useState([])
 
-    const isFirstRender = useRef(true);
-
-    useEffect(() => {
-        isFirstRender.current = false;
-    }, []);
-    if(isFirstRender.current){
-        if(getParameter() !== null){
-            selected.push(getParameter())
-        }
-    }
     const toggleOption = ( { id } ) => {
         setSelected(prevSelected => {
             const newArray = [...prevSelected]
@@ -52,6 +31,35 @@ const ProjectPage = ( { data }) => {
             }
         })
     }
+
+
+    function getParameter() {
+        if (typeof window !== `undefined`){
+            var url = window.location.href;
+            var v= 'selected'
+            v = v.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + v + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return parseInt(decodeURIComponent(results[2].replace(/\+/g, ' ')));
+        }
+        return null;
+    }
+
+    const isFirstRender = useRef(true);
+
+    useEffect(() => {
+        isFirstRender.current = false;
+    }, []);
+    if(isFirstRender.current){
+        if(getParameter() !== null){
+            selected.push(getParameter())
+        }
+    }
+
+    
+
 
 
 
