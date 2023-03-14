@@ -69,6 +69,7 @@ const ProjectPage = ( { data }) => {
                 <div style={{ paddingTop: '2rem', paddingBottom: '12rem'}}>
                     <MultiSelectDropdown options={technologies} selected={selected} toggleOption={toggleOption}s/>
                 </div>
+                <br/>
             </Layout>
         </div>
     )

@@ -9,10 +9,6 @@ const ExperiencePage = ( {data} ) => {
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
           <Experience/>
-          <StaticImage
-              alt="A Husky from the University of Washington, just like me!"
-              src="../../images/collincodes-logo/png/logo-no-background.png"
-          />
         </Layout>
     )
 }

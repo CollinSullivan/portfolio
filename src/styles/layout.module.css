@@ -4,7 +4,6 @@
 
 .container {
     padding: 0rem;
-    /* max-width: 500px; */
     font:  var(--heading-font);
     background-color: var(--background-color);
     color: var(--accent-color);
@@ -12,6 +11,7 @@
 
 .site-header {
     display: flex;
+    flex-wrap: row wrap;
     flex-direction: row;
     text-align: center;
     font: var(--heading-font);
@@ -23,11 +23,11 @@
 
 .logo {
     display: flex;
-    justify-content: space-between;
-    margin-left: 2rem;
-    margin-top: 2rem;
-    width: 8rem;
-    height: 8rem;
+    justify-content: space-evenly;
+    width: 75px;
+    height: 75px;
+    margin-left: 50px;
+    margin-top: 20px;
 }
 
 .heading {
@@ -35,20 +35,22 @@
     font: var(--heading-font);
     color: var(--secondary-color);
     font: var(--heading-font);
-    font-size: 2rem;
+    font-size: 10%;
 
 }
 
 .nav-links {
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    padding-left: 40%;
+    justify-content: space-evenly;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 40px ;
+    width: 70%;
     list-style: none;
 }
 
 .nav-link-item {
-    padding-right: 2rem;
+    padding-right: 2.5%;
 }
 
 .nav-link-text {
