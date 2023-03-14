@@ -3,6 +3,8 @@ import Layout from '../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../components/seo'
 import '../styles/theme.css'
+import {resumeButton} from '../styles/misc.module.css'
+import resume from '../resume.docx'
 
 const IndexPage = () => {
     return (
@@ -19,6 +21,8 @@ const IndexPage = () => {
                     src="../images/headshot.jpeg"
                     style={{ marginRight: "20%", marginLeft: "15%", borderRadius: "50%", width: "25%", height: "25%", maxWidth: "400px", maxHeight: "400px", minWidth: "100px", minHeight: "100px"}}/>
             </div>
+            <br/>
+            <a href={resume} download className={resumeButton}>Download Resume</a>
             <br/>
         </Layout>
     )

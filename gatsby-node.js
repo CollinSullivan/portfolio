@@ -9,13 +9,13 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
       module: {
         rules: [
           {
-            test: /\.(pdf)$/i,
+            test: /\.docx$/i,
             use: [
               {
                 loader: 'file-loader',
                 options: {
                   name: '[name].[ext]',
-                  outputPath: 'assets/pdf/',
+                  outputPath: 'static',
                 },
               },
             ],

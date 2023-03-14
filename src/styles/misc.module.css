@@ -1,0 +1,21 @@
+@import url('theme.css');
+
+.resume-button {
+    display: inline-block;
+    border: none;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .resume-button:hover {
+    background-color: var(--accent-color);
+  }
+  
