@@ -38,6 +38,9 @@ const Layout = ({ pageTitle, children}) => {
                     <li className={navLinkItem} key="projects">
                         <Link to="/projects" className={navLinkText}>PROJECTS</Link>
                     </li>
+                    <li className={navLinkItem} key="linkedin">
+                        <a href="https://www.linkedin.com/in/collin-j-sullivan/"  target="_blank" rel="noreferrer" className={navLinkText}>LINKEDIN</a>
+                    </li>
                 </ul>
 
             </header>
